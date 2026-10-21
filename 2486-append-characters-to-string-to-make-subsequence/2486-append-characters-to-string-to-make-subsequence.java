@@ -23,7 +23,7 @@ class Solution {
     public int appendCharacters(String s, String t) {
         int i = 0; // t
         int j = 0; // s
-
+        if(isSubsequence(s,t)) return 0;
         while (i < t.length() && j < s.length()) {
             if (t.charAt(i) == s.charAt(j)) {
                 i++;
