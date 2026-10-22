@@ -9,23 +9,32 @@
  * }
  */
 class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+        ListNode prev=null;
+        ListNode next=null;
+        ListNode curr=head;
+        int count=0;   // bhai k nodes hai bhi
+        ListNode temp=head;
+        for(int i=0;i<k;i++){
+            if(temp==null){
+                return head;
+            }
+            temp=temp.next;
+        }
+
+        // reverse code
+        for(int i=0;i<k;i++){
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+        // reverse hone ke bad head ekdum piche chala gya
+        head.next=reverseKGroup(curr,k);
+        return prev;
+    }
     public ListNode swapPairs(ListNode head) {
-        ListNode temp = head;
-        while(temp!=null &&temp.next!=null){
-        int z = temp.val;
-        temp.val=temp.next.val;
-        temp.next.val=z;
-        temp=temp.next.next;
-       
-
-        }
-         return head;
-        
-
-
-        }
-
-       
-        
+        return reverseKGroup(head,2);
     }
   
+}
