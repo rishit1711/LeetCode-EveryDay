@@ -13,9 +13,9 @@ class Solution {
         List<TreeNode> ans = new ArrayList<>();
         inorder(root, ans);
 
-        if (ans.isEmpty()) {
-            return null;
-        }
+        // if (ans.isEmpty()) {
+        //     return null;
+        // }
         TreeNode root1 = ans.get(0);
         for (int i = 0; i < ans.size(); i++) {
             TreeNode a = ans.get(i);
